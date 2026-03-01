@@ -1,0 +1,29 @@
+name: Crypto Signal Check
+
+on:
+  schedule:
+    # Runs at 00:00, 04:00, 08:00, 12:00, 16:00, 20:00 UTC every day
+    - cron: '0 0,4,8,12,16,20 * * *'
+  workflow_dispatch:  # Also allows manual trigger from GitHub website
+
+jobs:
+  run-signals:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run signal check
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID:   ${{ secrets.TG_CHAT_ID }}
+        run: python step9_alert_cloud.py
