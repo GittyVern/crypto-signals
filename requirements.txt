@@ -1,0 +1,4 @@
+ccxt
+scikit-learn
+pandas
+numpy
