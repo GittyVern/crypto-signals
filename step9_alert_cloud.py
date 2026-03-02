@@ -138,4 +138,4 @@ FEATURE_COLS = [
     'price_vs_ma7', 'price_vs_ma21', 'price_vs_ma50', 'price_vs_ma200',
     'mom3', 'mom7', 'mom14', 'mom21',
     'atr', 'vol_ratio', 'hl_ratio', 'oc_ratio',
-    'near_resistance', 'near_support', 'touch_count
+    'near_resistance', 'near_support', 'touch_count_hi', 'touch_count_lo',
