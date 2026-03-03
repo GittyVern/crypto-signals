@@ -7,6 +7,9 @@ jobs:
   run-signals:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write   # allows the workflow to commit back to the repo
+
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -24,3 +27,11 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID:   ${{ secrets.TG_CHAT_ID }}
         run: python step9_alert_cloud.py
+
+      - name: Save candle data back to repo
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/*.csv
+          git diff --cached --quiet || git commit -m "update candle data [skip ci]"
+          git push
