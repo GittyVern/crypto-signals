@@ -1,10 +1,7 @@
 name: Crypto Signal Check
 
 on:
-  schedule:
-    # Runs at 00:00, 04:00, 08:00, 12:00, 16:00, 20:00 UTC every day
-    - cron: '0 0,4,8,12,16,20 * * *'
-  workflow_dispatch:  # Also allows manual trigger from GitHub website
+  workflow_dispatch:  # Triggered externally by cron-job.org on exact 4h schedule
 
 jobs:
   run-signals:
