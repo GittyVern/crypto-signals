@@ -196,7 +196,7 @@ def fetch_candles(symbol: str, timeframe: str, n_candles: int) -> pd.DataFrame:
     os.makedirs(CACHE_DIR, exist_ok=True)
     cache_file = os.path.join(CACHE_DIR, symbol.replace('/', '_') + '_' + timeframe + '.csv')
 
-    exchange = ccxt.binance({'enableRateLimit': True})
+    exchange = ccxt.okx({'enableRateLimit': True})
     tf_ms = {'1h': 3600000, '4h': 14400000}[timeframe]
 
     if os.path.exists(cache_file):
