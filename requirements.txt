@@ -1,4 +1,4 @@
-ccxt
+ccxt==4.3.89
 scikit-learn
 pandas
 numpy
