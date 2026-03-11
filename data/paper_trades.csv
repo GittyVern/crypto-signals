@@ -1,0 +1,2 @@
+trade_id,token,full_symbol,direction,strategy,entry_ts,entry_price,confidence,exp_move,status,exit_ts,exit_price,pnl_pct,exit_reason,candles_held
+SOL_20260311_1600,SOL,SOL/USDT,UP,trailing,2026-03-11 16:00:00,87.32,0.6352,0.0054,open,,,,,
