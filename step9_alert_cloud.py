@@ -382,7 +382,7 @@ def run_prediction(symbol: str, config: dict):
         print(f"  Below {MIN_CONF:.0%} minimum. No signal.")
         return None
 
-    if abs(expected_move) < 0.01:
+    if abs(expected_move) < 0.005:
         print(f"  Expected move too small ({expected_move*100:+.2f}%). No signal.")
         return None
 
@@ -427,7 +427,7 @@ def main():
     if not signals:
         send_telegram(
             f"✅ <b>Crypto check complete</b>\n"
-            f"No signal met both filters (≥55% confidence + ≥1% expected move).\n"
+            f"No signal met both filters (≥55% confidence + ≥0.5% expected move).\n"
             f"⏰ {now_str}"
         )
     else:
